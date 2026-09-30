@@ -20,11 +20,9 @@ After editing `ignite2/Resources/Legal/*.md`, run `./build.sh` and redeploy.
 ### 1. Create the GitHub repo and push
 
 ```bash
-cd /Users/michaelryan/doublesqueeze/website
-git init -b main
-git add -A && git commit -m "Initial site"
+cd /Users/michaelryan/doublesqueeze/website   # already a git repo (main, initial commit done)
 # then either:
-gh repo create doublesqueeze-website --public --source=. --push
+gh auth login && gh repo create doublesqueeze-website --public --source=. --push
 # or create the repo on github.com under pcsmryan613 (or a
 # doublesqueezeproductions org if you make one) and:
 git remote add origin git@github.com:<owner>/<repo>.git
