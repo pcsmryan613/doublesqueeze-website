@@ -15,6 +15,18 @@ custom domain `doublesqueezeproductions.com`.
 
 After editing `ignite2/Resources/Legal/*.md`, run `./build.sh` and redeploy.
 
+## Status (Sep 30, 2026)
+
+- Repo is public at `github.com/pcsmryan613/doublesqueeze-website`; Pages serves
+  from `main` / root. Site is live on `http://doublesqueezeproductions.com`.
+- DNS done via Cloudflare API: 4 apex A records + `www` CNAME (all DNS-only).
+- **Pending:** GitHub Let's Encrypt cert for the custom domain (auto-issues after
+  DNS verification — check Settings → Pages, then tick "Enforce HTTPS").
+- **Email not yet configured:** only a `zoho-verification` TXT exists, no MX
+  records. Choose one: finish Zoho Mail (add its MX records, create `support@`
+  mailbox) or Cloudflare Email Routing (`support@` → Gmail forwarding). The
+  sections below still describe the steps.
+
 ## One-time deploy
 
 ### 1. Create the GitHub repo and push
@@ -53,20 +65,29 @@ Cloudflare dashboard → `doublesqueezeproductions.com` → DNS → Records:
 proxy. After Pages serves HTTPS, back in repo Settings → Pages tick
 **Enforce HTTPS**.
 
-### 4. Cloudflare Email Routing
+### 4. Email — pick ONE (currently neither is finished)
 
+**Option A — Cloudflare Email Routing (forwarding to existing Gmail):**
 Cloudflare dashboard → `doublesqueezeproductions.com` → Email → Email Routing →
 Get started:
 
 - Custom address: `support@doublesqueezeproductions.com`
-- Destination: `doublesqueezeproductions@gmail.com` (verify via the email Gmail receives)
+- Destination: your Gmail address (verify via the email Gmail receives)
 - Cloudflare adds the required MX/SPF records automatically — accept the prompt.
 
 Optional extras (same destination): `privacy@`, `legal@`, `appstore@`.
 
 To *send* as `support@…` from Gmail: Gmail → Settings → Accounts →
-"Send mail as" → add the address; use `smtp.gmail.com` is not needed — pick the
-"send through Gmail" option which uses the verification-code flow.
+"Send mail as" → add the address; use the "send through Gmail" /
+verification-code flow.
+
+**Option B — Zoho Mail (real mailbox; setup was started — the
+`zoho-verification` TXT exists but MX was never added):**
+Log into Zoho Mail admin → finish domain verification → it will list its MX
+records (typically `mx.zoho.com`, `mx2.zoho.com`, `mx3.zoho.com` + SPF TXT) →
+add them as DNS records here → create the `support@` mailbox.
+
+Do NOT do both — only one set of MX records can win.
 
 ### 5. Verify
 
