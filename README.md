@@ -18,14 +18,14 @@ After editing `ignite2/Resources/Legal/*.md`, run `./build.sh` and redeploy.
 ## Status (Sep 30, 2026)
 
 - Repo is public at `github.com/pcsmryan613/doublesqueeze-website`; Pages serves
-  from `main` / root. Site is live on `http://doublesqueezeproductions.com`.
+  from `main` / root. Site is live on `https://doublesqueezeproductions.com`.
 - DNS done via Cloudflare API: 4 apex A records + `www` CNAME (all DNS-only).
-- **Pending:** GitHub Let's Encrypt cert for the custom domain (auto-issues after
-  DNS verification — check Settings → Pages, then tick "Enforce HTTPS").
-- **Email not yet configured:** only a `zoho-verification` TXT exists, no MX
-  records. Choose one: finish Zoho Mail (add its MX records, create `support@`
-  mailbox) or Cloudflare Email Routing (`support@` → Gmail forwarding). The
-  sections below still describe the steps.
+- **HTTPS done (Oct 1, 2026):** cert issued after clearing + re-adding the custom
+  domain via `gh api -X PUT repos/.../pages -f cname=...` (the initial issuance
+  was stuck — re-adding retriggers it); **Enforce HTTPS** enabled, HTTP 301s.
+- **Email done (Sep 30, 2026):** Zoho Mail Lite, 1 license.
+  `support@doublesqueezeproductions.com` is an alias on the single mailbox;
+  MX + SPF live via Zoho's Cloudflare one-click, round-trip verified.
 
 ## One-time deploy
 
