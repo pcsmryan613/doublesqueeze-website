@@ -48,14 +48,11 @@ App.</p>
 <h2 id="3-subscription-and-purchase-information">3. Subscription and
 Purchase Information</h2>
 <p>When you purchase a subscription through the App, the transaction is
-processed entirely by Apple's StoreKit and, where applicable, RevenueCat
-(our subscription management provider). We do not receive or store your
+processed entirely by Apple's StoreKit. We do not receive or store your
 payment card details — Apple handles all payment processing
 securely.</p>
-<p><strong>What Apple/RevenueCat may share with us:</strong></p>
+<p><strong>What Apple may share with us:</strong></p>
 <ul>
-<li>An anonymous, randomly generated install identifier (no name or
-email)</li>
 <li>Your subscription status (active, expired, in trial)</li>
 <li>The product ID and purchase date of your subscription</li>
 </ul>
@@ -76,6 +73,17 @@ transmitted to our servers:</p>
 <p>This data remains on your device unless you explicitly delete it (see
 Section 6). If you uninstall the App, this data is permanently
 deleted.</p>
+<p><strong>One exception:</strong> the iOS Keychain stores a single
+piece of information — the date the App was first installed — which by
+Apple's design is not removed when you delete the App. We use it for one
+purpose only: so the free trial cannot be restarted by deleting and
+reinstalling. This means that if you reinstall the App on the same
+device, your trial continues from its original start date rather than
+beginning again.</p>
+<p>This date contains no personal information, is never synced to other
+devices, and is never transmitted anywhere. It cannot be deleted by you
+or by us — the only way to clear it is to erase the device entirely. A
+new device (or a fully wiped one) correctly receives a fresh trial.</p>
 <h2 id="5-childrens-privacy">5. Children's Privacy</h2>
 <p>The App is intended for users aged 13 and up and is not directed at
 children under the age of 13. We do not knowingly collect information
@@ -87,7 +95,9 @@ stored locally on your device, you have full control. You can:</p>
 <ul>
 <li>View your workout history within the App</li>
 <li>Delete all workout history via Settings</li>
-<li>Delete all on-device data by uninstalling the App</li>
+<li>Delete all on-device data by uninstalling the App (except the
+trial-start timestamp described in Section 4, which is stored in the iOS
+Keychain and cleared only by wiping the device)</li>
 </ul>
 <p><strong>No data to request:</strong> Since we do not maintain servers
 with your personal data, there is no data for us to export or delete on
@@ -99,18 +109,15 @@ your behalf. Your data is yours and lives only on your device.</p>
 purchases and subscriptions. Subject to <a
 href="https://www.apple.com/legal/privacy/">Apple's Privacy
 Policy</a>.</li>
-<li><strong>RevenueCat:</strong> Subscription management backend
-(anonymous install ID only). Subject to <a
-href="https://www.revenuecat.com/privacy">RevenueCat's Privacy
-Policy</a>.</li>
 </ul>
 <p>No other third-party analytics, advertising, or tracking SDKs are
 integrated into the App.</p>
 <h2 id="8-data-security">8. Data Security</h2>
 <p>Since your data is stored locally on your device, it benefits from
 the built-in security features of iOS, including device encryption and
-secure enclave technology. We do not transmit data over networks,
-eliminating the risk of data interception.</p>
+iOS Data Protection. Aside from App Store purchase transactions handled
+by Apple, the App does not transmit data over networks, eliminating the
+risk of data interception.</p>
 <h2 id="9-changes-to-this-privacy-policy">9. Changes to This Privacy
 Policy</h2>
 <p>We may update this Privacy Policy from time to time. When we do, the
