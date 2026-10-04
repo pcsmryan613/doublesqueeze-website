@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Is the N-Back
+Task? — Double Squeeze Productions, LLC</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="index.html">Double Squeeze Productions, LLC</a>
+    <nav>
+      <a href="index.html#support">Support</a>
+      <a href="blog.html">Blog</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </nav>
+  </div>
+</header>
+<main>
+<h1 id="what-is-the-n-back-task">What Is the N-Back Task?</h1>
+<p>The N-back is probably the most-used working-memory task in cognitive
+research. The rules are simple to state and genuinely hard to do: a
+stream of stimuli appears one at a time — letters, positions on a grid,
+sounds — and for each one you decide whether it matches the item
+presented <em>N</em> positions back. At 2-back you compare against two
+items ago; at 3-back, three.</p>
+<p>The task entered the mainstream after Jaeggi and colleagues' 2008
+study reported that practicing adaptive N-back transferred to fluid
+intelligence. That claim mostly failed to replicate — later work and
+meta-analyses found training gains stay close to the practiced task
+(Simons et al. 2016; Sala &amp; Gobet). But the N-back itself survived
+the controversy as an instrument: it's still a standard way to load
+working memory in the lab, and a real community trains on it for the
+challenge itself.</p>
+<h2 id="what-makes-a-real-n-back-implementation">What makes a real
+N-back implementation</h2>
+<p>A few details separate an honest N-back from a lookalike:</p>
+<ul>
+<li><strong>Controlled match frequency.</strong> Matches should be
+planted at a fixed quota (roughly a third of trials is common), not left
+to chance — the mix of matches and non-matches is what forces you to
+update the window every single trial instead of pattern-matching.</li>
+<li><strong>Lures.</strong> An item that matches the position
+<em>adjacent</em> to N back (an "n−1 lure") is the classic source of
+false alarms. Implementations that include lures discriminate between
+real updating and lucky guessing.</li>
+<li><strong>Multiple streams.</strong> The original Jaeggi task was
+<em>dual</em> N-back: a spatial stream and an auditory stream judged
+simultaneously. Single- stream variants are easier entry points; the
+dual version is the demanding one.</li>
+<li><strong>Sensible ceilings.</strong> Spatial N-back plateaus around
+4–5 back for nearly everyone; auditory streams cap lower. Apps that let
+N grow forever are padding, not progressing.</li>
+</ul>
+<h2 id="n-back-in-avoken">N-back in Avoken</h2>
+<p>Avoken ships three N-back variants — an identity stream, a spatial
+stream on a grid, and an auditory stream — each with planted match
+quotas and lures at upper levels. Difficulty steps are calibrated to the
+published paradigm rather than tuned to keep you tapping, and each
+workout cites its sources in-app.</p>
+<p><em>Avoken is a training app, not a treatment — we describe the task,
+and we don't claim it transfers anywhere else. If you like the paradigm,
+it's a careful implementation.</em></p>
+</main>
+<footer class="site">
+  &copy; Double Squeeze Productions, LLC &middot;
+  <a href="privacy.html">Privacy Policy</a> &middot;
+  <a href="terms.html">Terms of Use</a> &middot;
+  <a href="mailto:support@doublesqueezeproductions.com">support@doublesqueezeproductions.com</a>
+</footer>
+</body>
+</html>
