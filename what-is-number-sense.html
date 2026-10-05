@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Is the Approximate Number
+System? — Double Squeeze Productions, LLC</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="index.html">Double Squeeze Productions, LLC</a>
+    <nav>
+      <a href="index.html#support">Support</a>
+      <a href="blog.html">Blog</a>
+      <a href="press-kit.html">Press Kit</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </nav>
+  </div>
+</header>
+<main>
+<h1 id="what-is-the-approximate-number-system">What Is the Approximate
+Number System?</h1>
+<p>Show someone a cloud of dots for a second or two — too briefly to
+count — and ask how many there were. They won't be exact, but they'll be
+close, and their guesses will follow a remarkably lawful pattern. That
+ability is the approximate number system, or ANS: a mental system for
+representing quantity without counting (Dehaene 1997; Feigenson,
+Dehaene, &amp; Spelke 2004). It's distinct from subitizing, the instant
+apprehension of very small sets up to about four items, and from serial
+counting. The ANS is what answers "more or less?" when exact numbers
+aren't available.</p>
+<p>Its signature property is ratio dependence, described by Weber's law:
+the just-noticeable difference between two quantities is a fixed
+proportion of their magnitude. Telling 8 from 16 is roughly as easy as
+telling 40 from 80, while 40 versus 50 — the same absolute gap as 8
+versus 18 — is far harder (Xu &amp; Spelke 2000). Work by Halberda and
+Feigenson (2008) measured this directly, finding a typical adult Weber
+fraction around 0.14, and reported that individual ANS acuity correlates
+with school mathematics achievement (Halberda, Mazzocco, &amp; Feigenson
+2008). That link is genuinely debated — some analyses suggest it partly
+reflects domain-general factors rather than number sense itself (Gilmore
+et al. 2013) — and whether practicing estimation tasks transfers beyond
+the task remains an open question. But the ANS itself is one of the
+best-characterized systems in numerical cognition.</p>
+<h2 id="what-makes-a-real-numerosity-estimation-task">What makes a real
+numerosity-estimation task</h2>
+<p>A few details separate a faithful ANS task from a dot-guessing
+lookalike:</p>
+<ul>
+<li><strong>A display too brief to count.</strong> If the dots stay up
+long enough to tally one by one, you're measuring counting speed, not
+approximation. The window has to force estimation.</li>
+<li><strong>Ratio-scaled distractors, not absolute gaps.</strong> Under
+Weber's law a fixed 5-point gap is trivial at n=20 and brutal at n=60.
+Wrong answers must sit at multiplicative offsets from the true count so
+discriminability stays constant across the range — and so difficulty is
+tunable by tightening the ratio.</li>
+<li><strong>Larger counts at higher difficulty.</strong> Noise in the
+ANS grows with magnitude, so shifting the count range upward is a
+legitimate second difficulty axis, not a gimmick.</li>
+<li><strong>Exact-match scoring, or a principled tolerance.</strong> A
+wrong choice that sits inside the same coarse neighborhood shouldn't
+score as correct — otherwise the task can't tell a fine estimate from a
+sloppy one.</li>
+<li><strong>A plausible ceiling on the ratio.</strong> Compressing
+distractors below the typical adult Weber fraction (~0.14) stops being
+discrimination and starts being a coin flip. A real implementation lands
+near that boundary, not past it.</li>
+</ul>
+<h2 id="numerosity-estimation-in-avoken">Numerosity estimation in
+Avoken</h2>
+<p>Avoken's Numerosity workout flashes an array of dots inside a single
+timed window shared with four answer buttons — the user picks the count
+before time expires, and scoring requires the exact match. Its five
+levels adopt the published constraints directly: wrong answers are
+placed at round(count · ratio^±k), so the minimum gap is a fixed
+proportion of the count, and that ratio tightens from 1.50 at level 1 to
+1.15 at level 5 — near the ~0.14 Weber fraction measured in typical
+adults. The count range climbs from 10–49 dots to 40–69, the display
+window shortens from 4 to 3 seconds, and distractors are allowed to fall
+outside the dot range so range knowledge alone can't eliminate
+choices.</p>
+<p><em>Avoken describes the task honestly — practice on it is practice
+on it, not a promise it carries anywhere else. If the ANS interests you,
+this is a calibrated way to exercise it.</em></p>
+</main>
+<footer class="site">
+  &copy; Double Squeeze Productions, LLC &middot;
+  <a href="privacy.html">Privacy Policy</a> &middot;
+  <a href="terms.html">Terms of Use</a> &middot;
+  <a href="mailto:support@doublesqueezeproductions.com">support@doublesqueezeproductions.com</a>
+</footer>
+</body>
+</html>

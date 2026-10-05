@@ -54,3 +54,21 @@ $post_links</ul>
 EOF
   echo "Built: blog.html"
 fi
+
+# Standalone pages — markdown in pages/, rendered to site root, not
+# listed in the blog index.
+PAGES_DIR="$SITE_DIR/pages"
+if [ -d "$PAGES_DIR" ]; then
+  for src in "$PAGES_DIR"/*.md; do
+    [ -e "$src" ] || continue
+    slug="$(basename "$src" .md)"
+    case "$slug" in _*) continue ;; esac
+    title="$(grep -m1 '^# ' "$src" | sed 's/^# //')"
+    [ -n "$title" ] || { echo "ERROR: $src has no '# ' title" >&2; exit 1; }
+    pandoc -f gfm -t html5 \
+      --template="$SITE_DIR/template.html" \
+      --metadata title="$title" \
+      "$src" -o "$SITE_DIR/$slug.html"
+    echo "Built: $slug.html"
+  done
+fi
