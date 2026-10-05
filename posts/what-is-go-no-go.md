@@ -4,8 +4,8 @@ The go/no-go task is the standard laboratory measure of response
 inhibition. A stream of stimuli appears one at a time and you make a
 speeded response — a key press, a tap — to most of them. The catch is a
 minority of "no-go" trials where the correct response is to do nothing.
-The rules are simple to state and genuinely hard to do, because the
-difficulty doesn't live in the decision itself. It lives in the habit:
+The rules take one sentence to explain; doing them is another matter,
+because the difficulty doesn't live in the decision itself. It lives in the habit:
 go trials are deliberately frequent, so a prepotent "just respond" urge
 gathers strength across the stream, and withholding it on a no-go trial is the
 actual skill being measured.
@@ -61,6 +61,6 @@ rule is re-dealt every trial and roughly half the pairs call for a tap.
 Both workouts describe what they ask of you — they don't claim the
 skill carries anywhere else.
 
-*Avoken is a training app, not a treatment — we describe the task, and
-we don't claim it transfers anywhere else. If you like the paradigm,
-it's a careful implementation.*
+*Avoken is a training app, not a treatment. We describe what the task
+actually asks, and we don't claim the practice travels. If the paradigm
+interests you, this is a faithful implementation of it.*

@@ -58,6 +58,6 @@ scaling ~500ms per choice, harder color discrimination at upper levels
 premature taps. Both timestamp with `CACurrentMediaTime()` and score on
 mean RT of clean trials.
 
-*Avoken is a training app, not a treatment — we describe the task, and we
-don't claim it transfers anywhere else. If you like the paradigm, it's a
-careful implementation.*
+*Avoken is a training app, not a treatment — what it trains is the task
+itself, and we don't claim more than that. If you're fond of the
+paradigm, it's implemented with care here.*

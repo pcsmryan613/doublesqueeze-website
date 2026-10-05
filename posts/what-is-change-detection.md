@@ -21,7 +21,7 @@ claims — the honest picture is the same as for most working-memory tasks:
 practice gains stay close to the practiced task, and claims of far
 transfer have mostly failed to replicate.
 
-## What makes a real change-detection implementation
+## How to tell a faithful change-detection task
 
 A few details separate a faithful implementation from a lookalike:
 
@@ -67,6 +67,6 @@ colors so objects get harder to tell apart at the top — and every level
 step was audited against the published anchors (Luck & Vogel 1997;
 Alvarez & Cavanagh 2004; Alvarez & Franconeri 2007 for movement speed).
 
-*Avoken is a training app, not a treatment — we describe the task, and
-we don't claim it transfers anywhere else. If you like the paradigm,
-it's a careful implementation.*
+*Avoken is a training app, not a treatment. We describe what the task
+actually asks, and we don't claim the practice travels. If the paradigm
+interests you, this is a faithful implementation of it.*

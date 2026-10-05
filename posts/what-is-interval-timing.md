@@ -4,8 +4,9 @@ Interval timing is the ability to judge, produce, and reproduce durations
 in the range of hundreds of milliseconds to a few seconds — the timescale
 of speech, music, and movement. In the lab it shows up in a few standard
 forms: hear a rhythm and tap it back, tap along with a metronome and keep
-going when it stops, or judge whether one gap is longer than another. The
-rules are trivially simple. Doing it well is not — untrained tappers drift,
+going when it stops, or judge whether one gap is longer than another. There
+is nothing complicated about the instructions. Performing them is another
+matter — untrained tappers drift,
 rush, or clump their taps tens of milliseconds off the mark.
 
 The best-known account is scalar expectancy theory (Gibbon 1977): timing
@@ -19,7 +20,7 @@ and motor noise. Honest caveat: this is a measurement paradigm, and claims
 that practicing it transfers to untrained skills are as contested here as
 everywhere else in the training literature.
 
-## What makes a real interval-timing implementation
+## What a faithful interval-timing task requires
 
 A few details separate an honest timing task from a metronome toy:
 
@@ -62,6 +63,6 @@ right thumb at ratios from unison to 3-against-2 polyrhythm — scored
 per-stream with windowed matching, where both streams must pass their own
 gates for the rep to count. Each workout cites its sources in-app.
 
-*Avoken is a training app, not a treatment — we describe the task, and we
-don't claim it transfers anywhere else. If you like the paradigm, it's a
-careful implementation.*
+*Avoken is a training app, not a treatment. We describe what the task
+actually asks, and we don't claim the practice travels. If the paradigm
+interests you, this is a faithful implementation of it.*

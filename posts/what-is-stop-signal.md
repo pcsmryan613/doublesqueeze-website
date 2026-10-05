@@ -24,7 +24,7 @@ practicing response cancellation trains response cancellation in the
 task, and claims of broad real-world transfer remain contested in the
 literature.
 
-## What makes a real stop-signal implementation
+## The anatomy of an honest stop-signal task
 
 A few details separate an honest stop-signal task from a lookalike:
 
@@ -67,6 +67,7 @@ cap of two consecutive reps of the same type, and timing is fixed per
 level rather than adaptive — under accessibility timing, both the window
 and the SSD scale together so the 50% race structure is preserved.
 
-*Avoken is a training app, not a treatment — we describe the task, and we
-don't claim it transfers anywhere else. If you like the paradigm, it's a
-careful implementation.*
+*Worth saying plainly: Avoken is a training app, not a treatment.
+Practicing this task makes you practiced at this task — we don't claim
+broader transfer. If you like the paradigm, ours is a careful version of
+it.*

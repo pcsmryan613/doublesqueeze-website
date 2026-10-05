@@ -21,7 +21,7 @@ but evidence that practicing the task transfers to anything beyond it is
 thin. The task measures a capacity; whether training on it changes that
 capacity is an open question.
 
-## What makes a real operation-span implementation
+## What separates a real operation span from a lookalike
 
 A few details separate an honest complex span from a memory checklist with math
 bolted on:
@@ -67,6 +67,7 @@ interference wrinkle the instructions warn you to ignore. Session presets
 run fewer, longer reps than most Avoken workouts, since each rep is a
 full encode–recall cycle.
 
-*Avoken is a training app, not a treatment — we describe the task, and we
-don't claim it transfers anywhere else. If you like the paradigm, it's a
-careful implementation.*
+*Worth saying plainly: Avoken is a training app, not a treatment.
+Practicing this task makes you practiced at this task — we don't claim
+broader transfer. If you like the paradigm, ours is a careful version of
+it.*
