@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Is Choice Reaction
+Time? — Double Squeeze Productions, LLC</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="index.html">Double Squeeze Productions, LLC</a>
+    <nav>
+      <a href="index.html#support">Support</a>
+      <a href="blog.html">Blog</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </nav>
+  </div>
+</header>
+<main>
+<h1 id="what-is-choice-reaction-time">What Is Choice Reaction Time?</h1>
+<p>Reaction-time tasks come in two classic flavors. In <em>simple</em>
+reaction time, one stimulus maps to one response: wait for the light,
+tap the moment it appears. In <em>choice</em> reaction time, any of
+several stimuli can appear and each maps to a different response — find
+the one that changed and tap it, fast. The rules are easy to state; the
+gap between the two versions is where the science lives.</p>
+<p>That gap was the founding observation of mental chronometry. Donders,
+in the 1860s, proposed subtracting simple RT from choice RT to isolate
+the time the decision itself takes. A century later Hick and Hyman
+showed the choice component follows a clean law: RT grows linearly with
+log2 of the number of alternatives — two options cost one bit of
+decision, sixteen cost four. Together these tasks make up the
+processing-speed paradigm family. An honest caveat, same as everywhere
+in this literature: RT tasks are excellent <em>measurements</em>, but
+evidence that practicing them transfers to anything beyond the practiced
+task is thin.</p>
+<h2 id="what-makes-a-real-reaction-time-implementation">What makes a
+real reaction-time implementation</h2>
+<p>A few details separate an honest RT task from a tapping test:</p>
+<ul>
+<li><strong>A randomized foreperiod.</strong> If the wait before the
+stimulus is fixed, users learn the rhythm and respond on prediction, not
+reaction. The foreperiod must vary — and premature taps must be caught.
+Simple RT conventionally <em>discards</em> anticipations and retries;
+choice RT scores them as failures. Either way, an app that can't tell a
+false start from a real response isn't measuring RT.</li>
+<li><strong>Millisecond-grade timing.</strong> Reaction time lives in
+the 200–700ms range. Timestamps should come from a monotonic media clock
+taken at stimulus onset and tap completion — anything coarser swamps the
+effect.</li>
+<li><strong>Varying set size per trial.</strong> The Hick–Hyman result
+only shows up if the number of choices changes trial to trial. N should
+be drawn randomly within a range, so each rep pairs an RT with that
+rep's set size — you measure the slope directly rather than a single
+point.</li>
+<li><strong>Windows that scale with the task.</strong> The response
+deadline should grow roughly linearly with choice count (flat per-choice
+time), not collapse as N grows — otherwise you're confounding speed
+pressure with decision load.</li>
+<li><strong>RT as the score.</strong> The headline metric is mean RT of
+clean trials, with timeouts, wrong choices, and false starts excluded —
+not an accuracy percentage.</li>
+</ul>
+<h2 id="reaction-time-in-avoken">Reaction time in Avoken</h2>
+<p>Avoken ships a simple-RT and a choice-RT workout built as companion
+measures of the Donders contrast. The simple version is a single circle
+that turns green after a randomized 0.5–1.5s foreperiod; the response
+window starts at 1000ms and adapts per user down toward a ~350ms floor —
+near the young-adult simple-RT floor including touch latency — and
+anticipations are discarded, not scored. The choice version draws 2–16
+circles per rep (each rep's N randomized within the level's range, so
+the Hick's Law slope is measured directly), with the response window
+scaling ~500ms per choice, harder color discrimination at upper levels
+(green-vs-teal, then green-vs-yellow), and decoy flashes that tempt
+premature taps. Both timestamp with <code>CACurrentMediaTime()</code>
+and score on mean RT of clean trials.</p>
+<p><em>Avoken is a training app, not a treatment — we describe the task,
+and we don't claim it transfers anywhere else. If you like the paradigm,
+it's a careful implementation.</em></p>
+</main>
+<footer class="site">
+  &copy; Double Squeeze Productions, LLC &middot;
+  <a href="privacy.html">Privacy Policy</a> &middot;
+  <a href="terms.html">Terms of Use</a> &middot;
+  <a href="mailto:support@doublesqueezeproductions.com">support@doublesqueezeproductions.com</a>
+</footer>
+</body>
+</html>

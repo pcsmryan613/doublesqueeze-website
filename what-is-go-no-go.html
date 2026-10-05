@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Is the Go/No-Go
+Task? — Double Squeeze Productions, LLC</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="index.html">Double Squeeze Productions, LLC</a>
+    <nav>
+      <a href="index.html#support">Support</a>
+      <a href="blog.html">Blog</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </nav>
+  </div>
+</header>
+<main>
+<h1 id="what-is-the-gono-go-task">What Is the Go/No-Go Task?</h1>
+<p>The go/no-go task is the standard laboratory measure of response
+inhibition. A stream of stimuli appears one at a time and you make a
+speeded response — a key press, a tap — to most of them. The catch is a
+minority of "no-go" trials where the correct response is to do nothing.
+The rules are simple to state and genuinely hard to do, because the
+difficulty doesn't live in the decision itself. It lives in the habit:
+go trials are deliberately frequent, so a prepotent "just respond" urge
+gathers strength across the stream, and withholding it on a no-go trial
+is the actual skill being measured.</p>
+<p>The paradigm became a workhorse of executive-control research through
+work like Falkenstein and colleagues' studies of the frontal N2 brain
+potential, which is larger on no-go trials and was long read as the
+signature of inhibition itself. The honest caveat: Nieuwenhuis and
+colleagues (2003) showed the N2 is also large on any infrequent trial
+type, go or no-go, so it may index response conflict rather than
+inhibition. And like most tasks in this literature, practicing go/no-go
+reliably produces faster, more accurate performance on the task —
+evidence that it transfers broadly beyond it is thin. The task is still
+a precise instrument for what it measures.</p>
+<h2 id="what-makes-a-real-gono-go-implementation">What makes a real
+go/no-go implementation</h2>
+<p>A few details separate an honest go/no-go from a tap-when-told
+toy:</p>
+<ul>
+<li><strong>Skewed go probability.</strong> Go trials must substantially
+outnumber no-go trials — a 4:1 ratio is common in the literature — or
+the prepotent habit never forms and there's nothing to inhibit. Roughly
+two-thirds go is about the floor for reliably evoking it; an
+equiprobable design barely engages the mechanism.</li>
+<li><strong>Go rate as a difficulty axis.</strong> Raising the share of
+go trials makes inhibition <em>harder</em>, not easier — a stronger
+habit is harder to withhold. Implementations that cut the go rate at
+high levels are quietly lowering the difficulty while claiming to raise
+it.</li>
+<li><strong>Planted quotas, not coin flips.</strong> The go/no-go split
+should be enforced exactly and unpredictably — independent draws can
+produce long no-go droughts that deflate the habit, and obvious
+alternation lets you predict the safe trials.</li>
+<li><strong>Short inter-trial intervals.</strong> A tight gap between
+response and the next stimulus keeps the prepotent rhythm hot. Long
+pauses let the urge dissipate between trials.</li>
+<li><strong>Speed pressure.</strong> The response window has to push you
+toward answering before you've fully checked — with enough floor left
+that the task is still about deciding, not raw reaction time.</li>
+</ul>
+<h2 id="gono-go-in-avoken">Go/no-go in Avoken</h2>
+<p>Avoken ships two workouts built on the paradigm. In <strong>Simon
+Says</strong>, each trial shows a written instruction — "Simon Says: Tap
+Left," or just "Tap Left" — beside three direction buttons; you tap the
+named direction only when the "Simon Says" prefix is present, and do
+nothing when it isn't. The response window narrows from 1300ms to 900ms
+across its 8 levels while the share of go trials rises from 67% to 80% —
+the prepotency calibration documented in the literature — and a quota
+assigner enforces each level's go rate exactly. In
+<strong>Vigil</strong>, a pair of objects appears under a rule naming a
+dimension (color, pattern, or shape) and whether to tap when the pair
+matches or differs on it; the rule is re-dealt every trial and roughly
+half the pairs call for a tap. Both workouts describe what they ask of
+you — they don't claim the skill carries anywhere else.</p>
+<p><em>Avoken is a training app, not a treatment — we describe the task,
+and we don't claim it transfers anywhere else. If you like the paradigm,
+it's a careful implementation.</em></p>
+</main>
+<footer class="site">
+  &copy; Double Squeeze Productions, LLC &middot;
+  <a href="privacy.html">Privacy Policy</a> &middot;
+  <a href="terms.html">Terms of Use</a> &middot;
+  <a href="mailto:support@doublesqueezeproductions.com">support@doublesqueezeproductions.com</a>
+</footer>
+</body>
+</html>

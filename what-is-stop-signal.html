@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Is the Stop-Signal
+Task? — Double Squeeze Productions, LLC</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="index.html">Double Squeeze Productions, LLC</a>
+    <nav>
+      <a href="index.html#support">Support</a>
+      <a href="blog.html">Blog</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </nav>
+  </div>
+</header>
+<main>
+<h1 id="what-is-the-stop-signal-task">What Is the Stop-Signal Task?</h1>
+<p>The stop-signal task is the standard laboratory measure of response
+cancellation — the ability to abort an action you've already started.
+The rules are simple to state and genuinely hard to do: most trials show
+a go stimulus (say, an arrow pointing left or right) that you respond to
+as fast as you can. On a minority of trials, a second signal — a tone, a
+color change — appears shortly after the go stimulus, telling you to
+withhold the response you were already launching. Whether you succeed
+depends on a race you can't see.</p>
+<p>That race is the task's theoretical core. Logan and Cowan's 1984
+race-model account treats each stop trial as a competition between two
+independent processes: the go process, triggered by the arrow, and the
+stop process, triggered by the signal. If the stop process finishes
+first, you hold back; if the go process wins, you tap anyway. By varying
+the delay between the go stimulus and the stop signal (the stop-signal
+delay, or SSD), researchers can estimate how fast your covert stop
+process runs — the famous stop-signal reaction time, which never
+produces an observable response of its own. The task has become the
+workhorse measure of inhibitory control in studies of ADHD, impulse
+control, and aging. As with other training paradigms, honest reporting
+matters: practicing response cancellation trains response cancellation
+in the task, and claims of broad real-world transfer remain contested in
+the literature.</p>
+<h2 id="what-makes-a-real-stop-signal-implementation">What makes a real
+stop-signal implementation</h2>
+<p>A few details separate an honest stop-signal task from a
+lookalike:</p>
+<ul>
+<li><strong>A real race.</strong> The stop signal must arrive after the
+go stimulus, while the response is in flight — not simultaneously, which
+turns the task into plain go/no-go. The SSD relative to the response
+window determines how often stopping succeeds, and a late-enough signal
+is what creates genuine cancellation pressure.</li>
+<li><strong>Visible, correctly timed signals.</strong> Some apps make
+difficulty by shrinking the SSD until the signal is nearly invisible —
+that measures perception, not inhibition. A faithful implementation
+keeps the signal clearly detectable at a consistent point mid-trial and
+gets difficulty from the response window instead.</li>
+<li><strong>Planted trial-type frequencies.</strong> Stop trials should
+occur at a controlled rate (a quarter to a third of trials is common),
+not left to chance, with a cap on consecutive same-type trials so long
+runs of go trials can't lull you into autopilot — or long runs of stops
+can't make withholding trivial.</li>
+<li><strong>Failure modes that distinguish errors.</strong> A premature
+go (committing before the signal arrives) is a different error than
+tapping on the stop signal after it appears, and both differ from a
+wrong-direction tap or a go timeout. Implementations that score all of
+these as "wrong" throw away the data the paradigm exists to
+produce.</li>
+</ul>
+<h2 id="stop-signal-in-avoken">Stop signal in Avoken</h2>
+<p>Avoken's Shifting Signal workout is a hybrid of the classic
+stop-signal task and cued go/no-go: each rep shows a single left or
+right arrow that starts either black or red and may shift color after
+the SSD, producing four trial types — standard go, stop-signal (black
+turns red: cancel the in-flight tap), sustained no-go (red stays red),
+and cued go (red turns black: release from inhibition and tap). Because
+you can't predict the type at arrow onset, every rep requires watching
+for the shift. The six levels hold the SSD fixed at 50% of the go
+response window — the shift always lands mid-trial, clearly visible but
+late enough to force real cancellation — while the window itself shrinks
+and the red signal becomes less salient at higher levels. Trial types
+roll at flat per-rep probabilities (go 30%, stop-signal 30%, no-go 20%,
+cued-go 20%) with a cap of two consecutive reps of the same type, and
+timing is fixed per level rather than adaptive — under accessibility
+timing, both the window and the SSD scale together so the 50% race
+structure is preserved.</p>
+<p><em>Avoken is a training app, not a treatment — we describe the task,
+and we don't claim it transfers anywhere else. If you like the paradigm,
+it's a careful implementation.</em></p>
+</main>
+<footer class="site">
+  &copy; Double Squeeze Productions, LLC &middot;
+  <a href="privacy.html">Privacy Policy</a> &middot;
+  <a href="terms.html">Terms of Use</a> &middot;
+  <a href="mailto:support@doublesqueezeproductions.com">support@doublesqueezeproductions.com</a>
+</footer>
+</body>
+</html>

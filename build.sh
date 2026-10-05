@@ -29,6 +29,7 @@ if [ -d "$POSTS_DIR" ]; then
   for src in "$POSTS_DIR"/*.md; do
     [ -e "$src" ] || continue
     slug="$(basename "$src" .md)"
+    case "$slug" in GUIDELINES|TOPICS) continue ;; esac
     title="$(grep -m1 '^# ' "$src" | sed 's/^# //')"
     [ -n "$title" ] || { echo "ERROR: $src has no '# ' title" >&2; exit 1; }
     pandoc -f gfm -t html5 \

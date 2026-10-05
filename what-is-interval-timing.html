@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Is Interval
+Timing? — Double Squeeze Productions, LLC</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="brand" href="index.html">Double Squeeze Productions, LLC</a>
+    <nav>
+      <a href="index.html#support">Support</a>
+      <a href="blog.html">Blog</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </nav>
+  </div>
+</header>
+<main>
+<h1 id="what-is-interval-timing">What Is Interval Timing?</h1>
+<p>Interval timing is the ability to judge, produce, and reproduce
+durations in the range of hundreds of milliseconds to a few seconds —
+the timescale of speech, music, and movement. In the lab it shows up in
+a few standard forms: hear a rhythm and tap it back, tap along with a
+metronome and keep going when it stops, or judge whether one gap is
+longer than another. The rules are trivially simple. Doing it well is
+not — untrained tappers drift, rush, or clump their taps tens of
+milliseconds off the mark.</p>
+<p>The best-known account is scalar expectancy theory (Gibbon 1977):
+timing error grows in proportion to the interval being timed — Weber's
+law applied to duration — which is why a 60ms error matters at fast
+tempos but is invisible at slow ones (Grondin's reviews are the standard
+reference). The standard experimental paradigm is
+synchronization-continuation tapping (Wing &amp; Kristofferson 1973):
+tap with a pacing signal, then continue alone while the variability of
+your tap intervals is decomposed into clock noise and motor noise.
+Honest caveat: this is a measurement paradigm, and claims that
+practicing it transfers to untrained skills are as contested here as
+everywhere else in the training literature.</p>
+<h2 id="what-makes-a-real-interval-timing-implementation">What makes a
+real interval-timing implementation</h2>
+<p>A few details separate an honest timing task from a metronome
+toy:</p>
+<ul>
+<li><strong>A real continuation phase.</strong> Synchronizing with a
+beat mostly tests reaction to a cue; the diagnostic part of Wing &amp;
+Kristofferson's paradigm is continuing <em>after</em> the beat drops
+out. An implementation that never removes the pacing signal never probes
+internal timekeeping.</li>
+<li><strong>Detrended scoring.</strong> A user who taps steadily at a
+slightly wrong tempo has good timing and a miscalibrated clock —
+different failures. Real implementations fit a line through the signed
+asynchronies and score the residuals, so a small constant tempo error
+doesn't masquerade as noise.</li>
+<li><strong>Honest failure modes.</strong> Missed beats, dropped taps,
+and over-tapping all need to count. Long gaps shouldn't inflate drift
+statistics, and spamming extra taps shouldn't inflate the hit rate.</li>
+<li><strong>Tolerances in the published range.</strong> Competent
+synchronization accuracy in the SMS literature runs roughly a fifth to a
+quarter of the beat interval (Repp 2005). Windows far tighter than that
+are arbitrary; far looser and nothing is being measured.</li>
+<li><strong>Variable intervals, not just isochronous beats.</strong>
+Discriminating uneven gaps is a different judgment than tapping one
+steady tempo — and deviations should sit above the
+interval-discrimination threshold (roughly 20–30% of the base interval)
+to be perceivable at all.</li>
+</ul>
+<h2 id="interval-timing-in-avoken">Interval timing in Avoken</h2>
+<p>Avoken ships three interval-timing workouts, all scoring through a
+shared detrended tap-timing engine. The synchronization-continuation
+workout plays 4–6 sync beats, then drops the beat entirely for a fixed 6
+continuation taps across tempos from 60 to 140 BPM; tolerance tightens
+from 225ms to 90ms (about 21–25% of the beat interval, matching Repp's
+competent- performance range), with separate gates for detrended
+asynchrony, inter-tap drift, tempo error above 15%, and over-tapping.
+The rhythm reproduction workout plays a short pattern — 3 to 5 beats,
+uniform at first, then gaps that deviate by at least 30% from the base
+interval — and re-anchors scoring to your first tap so response latency
+isn't counted as timing error; on-time thresholds run 0.80 to 0.90, and
+the audio cue is removed at the top two levels so the rhythm must be
+encoded visually. The two-stream variant has you keep two tempos going
+at once — left thumb and right thumb at ratios from unison to
+3-against-2 polyrhythm — scored per-stream with windowed matching, where
+both streams must pass their own gates for the rep to count. Each
+workout cites its sources in-app.</p>
+<p><em>Avoken is a training app, not a treatment — we describe the task,
+and we don't claim it transfers anywhere else. If you like the paradigm,
+it's a careful implementation.</em></p>
+</main>
+<footer class="site">
+  &copy; Double Squeeze Productions, LLC &middot;
+  <a href="privacy.html">Privacy Policy</a> &middot;
+  <a href="terms.html">Terms of Use</a> &middot;
+  <a href="mailto:support@doublesqueezeproductions.com">support@doublesqueezeproductions.com</a>
+</footer>
+</body>
+</html>
